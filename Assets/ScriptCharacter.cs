@@ -121,11 +121,11 @@ public class ScriptCharacter : MonoBehaviour
         }
         else
         {
-            Ray slideRay = new Ray(m_Rigidbody.position + Vector3.up * m_Capsule.radius * k_Half, Vector3.up);
-            float slideRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
-            if (Physics.SphereCast(slideRay, m_Capsule.radius * k_Half, slideRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+            Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Capsule.radius * k_Half, Vector3.up);
+            float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
+            if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
             {
-                m_Sliding = true;
+                m_Crouching = true;
                 return;
             }
             m_Capsule.height = m_CapsuleHeight;
